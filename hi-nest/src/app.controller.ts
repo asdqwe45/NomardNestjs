@@ -1,14 +1,9 @@
-import { Controller, Get, Post } from '@nestjs/common';
+import { Controller, Get } from '@nestjs/common';
 
 @Controller()
 export class AppController {
   @Get()
-  getHello(): string {
-    return `hello world`;
-  }
-
-  @Post('/hello')
-  sayHello(): string {
-    return 'Hello everyone';
+  home() {
+    return `Welcome to my Movie API`;
   }
 }

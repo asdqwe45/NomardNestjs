@@ -1,10 +1,21 @@
 import { Module } from '@nestjs/common';
-import { MoviesController } from './movies/movies.controller';
-import { MoviesService } from './movies/movies.service';
+import { MoviesModule } from './movies/movies.module';
+import { AppController } from './app.controller';
+import { ConfigModule } from '@nestjs/config';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { Movie } from './movies/entities/movie.entity';
+import * as ormconfig from '../ormconfig';
 
 @Module({
-  imports: [],
-  controllers: [MoviesController],
-  providers: [MoviesService],
+  imports: [
+    MoviesModule,
+    ConfigModule.forRoot({
+      envFilePath: ['.development.env'],
+    }),
+    TypeOrmModule.forRoot(ormconfig),
+    MoviesModule,
+  ],
+  controllers: [AppController],
+  providers: [],
 })
 export class AppModule {}
