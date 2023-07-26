@@ -19,6 +19,10 @@ export class MoviesController {
   getAll(): Movie[] {
     return this.moviesService.getAll();
   }
+  @Get(':/title')
+  getAction(@Param('title') movieTitle: string) :Movie {
+    return this.moviesService.getAction(movieTitle);
+  }
   @Get('/:id')
   getOne(@Param('id') movieId: number): Movie {
     return this.moviesService.getOne(movieId);

@@ -10,6 +10,10 @@ export class MoviesService {
     return this.movies;
   }
 
+  getAction(movieTitle: string): Movie {
+    return this.movies.find((movie) => movie.title === movieTitle);
+  }
+
   getOne(id: number): Movie {
     const movie = this.movies.find((movie) => movie.id === id);
     if (!movie) {
