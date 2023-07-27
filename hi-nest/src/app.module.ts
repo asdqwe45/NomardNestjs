@@ -8,12 +8,7 @@ import * as ormconfig from '../ormconfig';
 
 @Module({
   imports: [
-    MoviesModule,
-    ConfigModule.forRoot({
-      envFilePath: ['.development.env'],
-    }),
-    TypeOrmModule.forRoot(ormconfig),
-    MoviesModule,
+    MoviesModule,    
   ],
   controllers: [AppController],
   providers: [],
